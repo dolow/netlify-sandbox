@@ -1,87 +1,89 @@
 <!DOCTYPE html>
 <html>
 <body>
-  <div>
-    Youtube embed
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/CfOn4dXu-xY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
-  <div id="shopify">
-  </div>
-  <script type="text/javascript" src="https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js"></script>
-  <script type="text/javascript">
-    (function () {
-      function ShopifyBuyInit() {
-        var client = ShopifyBuy.buildClient({
-          domain: 'smiths-lab.myshopify.com',
-          storefrontAccessToken: '8aba35f7c194c46db3ab8777524ba5f8',
-          appId: '302738931892'
-        });
+  <div style="text-align: center;">
+    <h1>Youtube & Shopify embed test</h1>
+    <div>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/CfOn4dXu-xY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div id="shopify">
+    </div>
+    <script type="text/javascript" src="https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js"></script>
+    <script type="text/javascript">
+      (function () {
+        function ShopifyBuyInit() {
+          var client = ShopifyBuy.buildClient({
+            domain: 'smiths-lab.myshopify.com',
+            storefrontAccessToken: '8aba35f7c194c46db3ab8777524ba5f8',
+            appId: '302738931892'
+          });
 
-        ShopifyBuy.UI.onReady(client).then(function (ui) {
-          ui.createComponent('product', {
-            id: [6179461169332],
-            node: document.getElementById('shopify'),
-            moneyFormat: '%24%24%24%7B%7Bamount%7D%7D',
-            options: {
-              "product": {
-                "variantId": "all",
-                "contents": {
-                  "variantTitle": false,
-                  "description": false,
-                  "buttonWithQuantity": false,
-                  "quantity": false
-                },
-                "styles": {
-                  "product": {
-                    "@media (min-width: 601px)": {
-                      "max-width": "calc(25% - 20px)",
-                      "margin-left": "20px",
-                      "margin-bottom": "50px"
+          ShopifyBuy.UI.onReady(client).then(function (ui) {
+            ui.createComponent('product', {
+              id: [6179461169332],
+              node: document.getElementById('shopify'),
+              moneyFormat: '%24%24%24%7B%7Bamount%7D%7D',
+              options: {
+                "product": {
+                  "variantId": "all",
+                  "contents": {
+                    "variantTitle": false,
+                    "description": false,
+                    "buttonWithQuantity": false,
+                    "quantity": false
+                  },
+                  "styles": {
+                    "product": {
+                      "@media (min-width: 601px)": {
+                        "max-width": "calc(25% - 20px)",
+                        "margin-left": "20px",
+                        "margin-bottom": "50px"
+                      }
                     }
                   }
-                }
-              },
-              "cart": {
-                "contents": {
-                  "button": true
                 },
-                "styles": {
-                  "footer": {
-                    "background-color": "#ffffff"
-                  }
-                }
-              },
-              "modalProduct": {
-                "contents": {
-                  "variantTitle": false,
-                  "buttonWithQuantity": false,
-                  "quantity": false
-                },
-                "styles": {
-                  "product": {
-                    "@media (min-width: 601px)": {
-                      "max-width": "100%",
-                      "margin-left": "0px",
-                      "margin-bottom": "0px"
+                "cart": {
+                  "contents": {
+                    "button": true
+                  },
+                  "styles": {
+                    "footer": {
+                      "background-color": "#ffffff"
                     }
                   }
-                }
-              },
-              "productSet": {
-                "styles": {
-                  "products": {
-                    "@media (min-width: 601px)": {
-                      "margin-left": "-20px"
+                },
+                "modalProduct": {
+                  "contents": {
+                    "variantTitle": false,
+                    "buttonWithQuantity": false,
+                    "quantity": false
+                  },
+                  "styles": {
+                    "product": {
+                      "@media (min-width: 601px)": {
+                        "max-width": "100%",
+                        "margin-left": "0px",
+                        "margin-bottom": "0px"
+                      }
+                    }
+                  }
+                },
+                "productSet": {
+                  "styles": {
+                    "products": {
+                      "@media (min-width: 601px)": {
+                        "margin-left": "-20px"
+                      }
                     }
                   }
                 }
               }
-            }
+            });
           });
-        });
-      }
-      ShopifyBuyInit();
-    })();
-</script>
+        }
+        ShopifyBuyInit();
+      })();
+    </script>
+  </div>
 </body>
 </html>
